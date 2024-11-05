@@ -7,25 +7,24 @@
         <meta name="author" content="Eduardo" />
         <title>Stranger Things</title>
 
-        <link rel="stylesheet" href="./src/style/reset.css" />
-        <link rel="stylesheet" href="./src/style/style.css" />
+        <link rel="stylesheet" href="./assets/css/styles.css" />
         <meta
             name="keywords"
             content="desafio, dio-me, Stranger-Things, Land Page"
         />
-        <link rel="icon" href="./assets/icon.ico" type="image/x-icon" />
+        <link rel="icon" href="./assets/images/footer/tape.svg" type="image/svg" />
     </head>
 
-    <body>
-        <header>
-            <audio>
-                <source src="assets/musics/normal-world.mpeg" />
+    <body class="light-theme" aria-label="O site esta utilizando o tema light" role="body">
+        <header aria-label="Cabeçalho da página">
+            <audio id="music" autoplay>
+                <source src="assets/musics/normal-world.mpeg" aria-label="Audio do site"/>
                 O navegador não tem suporte de audio.
             </audio>
             <div class="header-content">
                 <img
                     src="assets/images/banner/logo.svg"
-                    alt="Imagem Principal"
+                    alt="Imagem principal Mundo Invertido, Semana Frontend DIO"
                     class="invert-element"
                 />
                 <p class="invert-element" role="text">
@@ -45,9 +44,11 @@
         </header>
 
         <main>
+          <div id="bottom-characters" class="world-characters"></div>
+
             <section id="section-inverted-world" class="container">
                 <div class="section-texts">
-                    <h1>O Mundo Invertido</h1>
+                    <h2>O Mundo Invertido</h2>
                     <p role="text">
                         O Mundo Invertido parece uma cópia do nosso mundo, mas
                         com criaturas horrendas, tempestades assustadoras, muita
@@ -89,6 +90,7 @@
 
             <section id="section-stranger-things-gallery">
                 <div class="container section-text">
+                  <h2>A segunda série mais assistida da Netflix</h2>
                     <ul class="gallery-container" role="gallery">
                         <li class="gallery-image invert-element">
                             <img
@@ -113,7 +115,7 @@
             </section>
 
             <section id="section-form" class="container">
-                <h2>O Clube Dungeons \& Dragons</h2>
+                <h2>O Clube Dungeons &amp; Dragons</h2>
                 <p>
                     Para deter Vecna, os heróis de Stranger Things também
                     precisam de você. O Clube de D&D mais famoso de Hawkings
@@ -166,5 +168,18 @@
             <img src="assets/images/footer/logo.svg" alt="Logotipo DIO" />
         </footer>
         <script defer src="./src/scripts/main.js"></script>
+        <script>
+          function switchTheme() {
+            document.body.classList.toggle('dark-theme');
+            let label = "";
+            let theme;
+            if (document.body.classList.contains('dark-theme')) {
+              theme = "dark";
+            }else{
+              theme = "light";
+            }
+            document.body.setAttribute("aria-label", `O site esta utilizando o tema ${theme}.`)
+          }
+        </script>
     </body>
 </html>
